@@ -30,7 +30,7 @@ public class Menu implements MouseListener{
 	public void render(Graphics2D g2){
 		Font font= new Font("calibri", Font.BOLD,50);
 		g2.setFont(font);
-		g2.setColor(Color.YELLOW);
+		g2.setColor(Color.RED);
 		g2.fillOval(DisplayGame.WIDTH/2-73, DisplayGame.HEIGHT/2-250, 150, 150);
 		g2.setColor(Color.ORANGE);
 		g2.drawString("Agario Informatica 1", DisplayGame.WIDTH/2-170, 300);

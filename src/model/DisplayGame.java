@@ -22,9 +22,9 @@ public class DisplayGame extends JPanel implements ActionListener{
 	public static int WIDTH=840;
 	public static int HEIGHT=680;
 	private int numoffoods=1000;
-	private Players player1;
+	private PlayersAbstract player1;
 	private JViewport vPort;
-	private Players player2;
+	private PlayersAbstract player2;
 	private Foods food;
 	private long time;
 	private Poisons poison;
@@ -129,9 +129,9 @@ public class DisplayGame extends JPanel implements ActionListener{
 		double a=TimeUnit.SECONDS.convert(System.nanoTime() - time, TimeUnit.NANOSECONDS);
 		Font font= new Font("arial",Font.BOLD,15);
 		g2.setFont(font);
-		g2.drawString("SPEED: "+new DecimalFormat("##.##").format(player1.getVelocity()),(int)(player1.getX()-350), (int)(player1.getY()-300));
-		g2.drawString("RADIUS OF BALL: "+Math.floor(player1.getPlayer().height),(int)(player1.getX()-350), (int)(player1.getY()-280));
-		g2.drawString("TIME: "+a, (int)(player1.getX()-350),  (int)(player1.getY()-260));
+		g2.drawString("Velocidad: "+new DecimalFormat("##.##").format(player1.getVelocity()),(int)(player1.getX()-350), (int)(player1.getY()-300));
+		g2.drawString("Radio : "+Math.floor(player1.getPlayer().height),(int)(player1.getX()-350), (int)(player1.getY()-280));
+		g2.drawString("Tiempo: "+a, (int)(player1.getX()-350),  (int)(player1.getY()-260));
 	}
 
 	@Override
@@ -155,13 +155,13 @@ public class DisplayGame extends JPanel implements ActionListener{
 			repaint();	
 		}
 	}
-	public Players getPlayer1() {
+	public PlayersAbstract getPlayer1() {
 		return player1;
 	}
 	public void setPlayer1(Players player1) {
 		this.player1 = player1;
 	}
-	public Players getPlayer2() {
+	public PlayersAbstract getPlayer2() {
 		return player2;
 	}
 	public void setPlayer2(Players player2) {

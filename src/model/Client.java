@@ -3,7 +3,6 @@ package model;
 import java.io.*;
 import java.net.Socket;
 import java.util.concurrent.TimeUnit;
-import model.*;
 
 public class Client implements Runnable {
     private String address;

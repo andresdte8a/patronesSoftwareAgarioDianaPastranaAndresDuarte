@@ -6,7 +6,7 @@ import java.awt.geom.Ellipse2D;
 import java.io.Serializable;
 import java.util.Random;
 
-public class Players implements Serializable {
+public class Players implements Serializable, PlayersAbstract {
 	private Ellipse2D.Double Player;
 	private Color playerColor;
 	private double velocity=5;
@@ -16,20 +16,24 @@ public class Players implements Serializable {
 		Player=new Ellipse2D.Double(random.nextInt(500)+2000, random.nextInt(500)+1000, 25, 25);
 		playerColor= new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));
 	}
+        @Override
 	public void drawPlayers(Graphics2D g2){
 		g2.setColor(playerColor);
 		g2.fill(Player);
 	}
+        @Override
 	public void increaseSize(){
 		Player.width += 0.9;
 		Player.height +=0.9;
 		velocity -= 0.03;
 	}
+        @Override
 	public void decreaseSize(){
 		Player.width -= 0.9;
 		Player.height -=0.9;
 		velocity += 0.03;
 	}
+        @Override
 	public void moveRight(){
 		Player.x+=1;
 	}
