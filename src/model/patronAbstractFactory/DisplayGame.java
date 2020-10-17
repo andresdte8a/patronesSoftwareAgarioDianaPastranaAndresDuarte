@@ -124,13 +124,13 @@ public class DisplayGame extends JPanel implements ActionListener, VisualAspects
     }
 
     public void printInfoBall(Graphics2D g2) {
-        g2.setColor(Color.ORANGE);
+        g2.setColor(Color.BLUE);
         double a = TimeUnit.SECONDS.convert(System.nanoTime() - time, TimeUnit.NANOSECONDS);
         Font font = new Font("arial", Font.BOLD, 15);
         g2.setFont(font);
-        g2.drawString("Velocidad: " + new DecimalFormat("##.##").format(player1.getVelocity()), (int) (player1.getX() - 350), (int) (player1.getY() - 300));
-        g2.drawString("Radio : " + Math.floor(player1.getPlayer().height), (int) (player1.getX() - 350), (int) (player1.getY() - 280));
-        g2.drawString("Tiempo: " + a, (int) (player1.getX() - 350), (int) (player1.getY() - 260));
+        g2.drawString("Velocidad: " + new DecimalFormat("##.##").format(player1.getVelocity()), (int) (player1.getX() - 350), (int) (player1.getY() - 220));
+        g2.drawString("Radio : " + Math.floor(player1.getPlayer().height), (int) (player1.getX() - 350), (int) (player1.getY() - 260));
+        g2.drawString("Tiempo: " + a, (int) (player1.getX() - 350), (int) (player1.getY() - 240));
     }
 
     @Override
