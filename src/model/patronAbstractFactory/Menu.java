@@ -46,11 +46,11 @@ public class Menu implements MouseListener, VisualAspects{
                 at.translate(20, 20);
                 Image imagen = t.getImage ("src/imagenes/zombie1.jpg");               
 		g2.setFont(font);
-		g2.setColor(Color.RED);
+		g2.setColor(Color.YELLOW);
                 g2.drawImage(imagen, at, displayGame);
-		g2.fillOval(DisplayGame.WIDTH/2-73, DisplayGame.HEIGHT/2-250, 20, 20);
+		g2.fillOval(DisplayGame.WIDTH/2-173, DisplayGame.HEIGHT/2-250, 40, 40);
 		g2.setColor(Color.ORANGE);
-		g2.drawString("Informatica 1", DisplayGame.WIDTH/2-170, 300);
+		g2.drawString("Informatica 1", DisplayGame.WIDTH/2-170, 280);
 		g2.setColor(Color.RED);
 		g2.drawString("Jugar", playButton.x, playButton.y+40);
 		g2.drawString("Salir", quitButton.x, quitButton.y+40);	
@@ -65,13 +65,13 @@ public class Menu implements MouseListener, VisualAspects{
 		g2.setColor(Color.GREEN);
 		Font font= new Font("calibri", Font.BOLD,50);
 		g2.setFont(font);
-		g2.drawString("YOU WON", pointPlayer1.x-100, pointPlayer1.y);
+		g2.drawString("Ganaste", pointPlayer1.x-100, pointPlayer1.y);
 	}
 	public void player2Won(Graphics2D g2){
 		g2.setColor(Color.RED);
 		Font font= new Font("calibri", Font.BOLD,50);
 		g2.setFont(font);
-		g2.drawString("YOU LOST", pointPlayer1.x-100, pointPlayer1.y);
+		g2.drawString("Perdiste", pointPlayer1.x-100, pointPlayer1.y);
 	}
 
 	@Override
