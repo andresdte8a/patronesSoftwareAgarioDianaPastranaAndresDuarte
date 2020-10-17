@@ -7,19 +7,21 @@ package model.patronProxy;
 import java.awt.event.MouseEvent;
 import java.net.Socket;
 import model.patronAbstractFactory.DisplayGame;
+import model.patronAbstractFactory.VisualAspects;
 
 /**
  *
  * @author programador
  */
 public class Proxy implements Subject{
-    private DisplayGame displayGame;
+    
+    private VisualAspects displayGame;
     
     public Proxy() {
     }
 
     public Server doAction() {
-        Server server = new Server(displayGame); 
+        Server server = new Server((DisplayGame)displayGame); 
         return server;
     }
 

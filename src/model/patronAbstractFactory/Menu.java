@@ -11,6 +11,8 @@ import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
+import java.awt.image.ImageObserver;
+import java.beans.Visibility;
 import javax.swing.JViewport;
 import model.Client;
 import model.patronFacade.Foods;
@@ -27,7 +29,7 @@ public class Menu implements MouseListener, VisualAspects{
 	private Rectangle playButton = new Rectangle(DisplayGame.WIDTH/2-50,DisplayGame.HEIGHT/2,100,50);
 	private Rectangle quitButton = new Rectangle(DisplayGame.WIDTH/2-50, DisplayGame.HEIGHT/2+100, 100, 50);
 	private boolean enabled = true;
-	private DisplayGame displayGame;
+	private VisualAspects displayGame;
 	private Point pointPlayer1;
 	public String[] args;
         Proxy proxy = new Proxy();
@@ -40,20 +42,19 @@ public class Menu implements MouseListener, VisualAspects{
 	}
 
 	public void render(Graphics2D g2){
-		Font font= new Font("calibri", Font.BOLD,50);
+		Font font= new Font("Helvetica", Font.BOLD | Font.ITALIC,50);
                 Toolkit t = Toolkit.getDefaultToolkit();
                 AffineTransform at = g2.getTransform();
                 at.translate(20, 20);
                 Image imagen = t.getImage ("src/imagenes/zombie1.jpg");               
 		g2.setFont(font);
 		g2.setColor(Color.YELLOW);
-                g2.drawImage(imagen, at, displayGame);
-		g2.fillOval(DisplayGame.WIDTH/2-173, DisplayGame.HEIGHT/2-250, 40, 40);
+                g2.drawImage(imagen, at, (DisplayGame) displayGame);
 		g2.setColor(Color.ORANGE);
 		g2.drawString("Informatica 1", DisplayGame.WIDTH/2-170, 280);
 		g2.setColor(Color.RED);
-		g2.drawString("Jugar", playButton.x, playButton.y+40);
-		g2.drawString("Salir", quitButton.x, quitButton.y+40);	
+		g2.drawString("Jugar", playButton.x, playButton.y+50);
+		g2.drawString("Salir", quitButton.x, quitButton.y+50);	
 	}
 	public void setPoint(Point pointPlayer1){
 		this.pointPlayer1=pointPlayer1;
@@ -63,7 +64,7 @@ public class Menu implements MouseListener, VisualAspects{
 	}
 	public void player1Won(Graphics2D g2){
 		g2.setColor(Color.GREEN);
-		Font font= new Font("calibri", Font.BOLD,50);
+		Font font= new Font("TimesRoman", Font.BOLD,50);
 		g2.setFont(font);
 		g2.drawString("Ganaste", pointPlayer1.x-100, pointPlayer1.y);
 	}
@@ -107,7 +108,7 @@ public class Menu implements MouseListener, VisualAspects{
 			            thread.start();
 					}
 					else{
-			            Client client = new Client(args[0] ,displayGame);
+			            Client client = new Client(args[0] , (DisplayGame) displayGame);
 			            System.out.println(args[0]);
 			            Thread thread = new Thread(client);
 			            thread.start();
