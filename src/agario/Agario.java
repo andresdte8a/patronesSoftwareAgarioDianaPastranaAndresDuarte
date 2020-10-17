@@ -1,10 +1,13 @@
 package agario;
 
-import model.DisplayGame;
+import java.awt.Component;
+import model.patronAbstractFactory.DisplayGame;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 import javax.swing.ScrollPaneConstants;
+import model.patronAbstractFactory.VisualAspects;
 
 
 public class Agario {
@@ -15,13 +18,13 @@ public class Agario {
 		JFrame frame= new JFrame("AGARIO INFORMATICA 1");
 		JScrollPane pane= new JScrollPane();
 		JViewport vport= new JViewport();
-		DisplayGame panel= new DisplayGame();
+		VisualAspects panel= new DisplayGame();
 		
-		panel.menu.setArgs(args);
-		vport.add(panel);
+		panel.setArgs(args);
+		vport.add((JPanel) panel);
 		frame.setVisible(true);
 		pane.setViewport(vport);
-		vport.add(panel);
+		vport.add((JPanel)panel);
 		frame.add(pane);
 		frame.setSize(DisplayGame.WIDTH, DisplayGame.HEIGHT);
 		panel.setvPort(vport);

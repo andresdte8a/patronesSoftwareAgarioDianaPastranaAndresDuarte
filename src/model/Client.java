@@ -1,12 +1,16 @@
 package model;
 
+import model.patronFacade.Poisons;
+import model.patronFacade.Foods;
+import model.patronAbstractFactory.DisplayGame;
 import java.io.*;
 import java.net.Socket;
 import java.util.concurrent.TimeUnit;
+import model.patronAbstractFactory.VisualAspects;
 
 public class Client implements Runnable {
     private String address;
-    private DisplayGame panel;
+    private VisualAspects panel;
 
     public Client(String address, DisplayGame panel) {
         this.address = address;

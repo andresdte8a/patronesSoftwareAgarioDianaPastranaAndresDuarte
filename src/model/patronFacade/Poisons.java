@@ -1,4 +1,4 @@
-package model;
+package model.patronFacade;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

@@ -1,14 +1,16 @@
 package model;
 
 
+import model.patronAbstractFactory.DisplayGame;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.TimeUnit;
 import model.Players;
+import model.patronAbstractFactory.VisualAspects;
 
 public class Server implements Runnable {
-    private DisplayGame panel;
+    private VisualAspects panel;
     private boolean mapSent = false;
 
     public Server(DisplayGame panel) {
