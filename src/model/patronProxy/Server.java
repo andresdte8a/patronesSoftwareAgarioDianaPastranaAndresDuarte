@@ -1,4 +1,4 @@
-package model;
+package model.patronProxy;
 
 
 import model.patronAbstractFactory.DisplayGame;
@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import model.Players;
 import model.patronAbstractFactory.VisualAspects;
 
-public class Server implements Runnable {
+public class Server implements Runnable{
     private VisualAspects panel;
     private boolean mapSent = false;
 
@@ -53,8 +53,7 @@ public class Server implements Runnable {
         ObjectOutputStream ooStream = new ObjectOutputStream(oStream);
         ooStream.writeObject(panel.getPlayer1());
     }
-
-
+    
     private void sendPoisons(Socket socket) {
         try {
             OutputStream oStream = socket.getOutputStream();
@@ -75,8 +74,6 @@ public class Server implements Runnable {
             e.printStackTrace();
         }
     }
-
-
 
     @Override
     public void run() {

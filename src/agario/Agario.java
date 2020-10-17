@@ -15,7 +15,7 @@ public class Agario {
 	public static boolean gamemode;
 	public static void main(String[] args) {
 		
-		JFrame frame= new JFrame("AGARIO INFORMATICA 1");
+		JFrame frame= new JFrame("AGARIO");
 		JScrollPane pane= new JScrollPane();
 		JViewport vport= new JViewport();
 		VisualAspects panel= new DisplayGame();

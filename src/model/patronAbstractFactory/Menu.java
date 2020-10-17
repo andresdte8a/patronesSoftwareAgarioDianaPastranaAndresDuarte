@@ -4,17 +4,21 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.AffineTransform;
 import javax.swing.JViewport;
 import model.Client;
 import model.patronFacade.Foods;
 import model.GameStates;
 import model.Players;
 import model.patronFacade.Poisons;
-import model.Server;
+import model.patronProxy.Proxy;
+import model.patronProxy.Server;
 
 
 public class Menu implements MouseListener, VisualAspects{
@@ -26,7 +30,7 @@ public class Menu implements MouseListener, VisualAspects{
 	private DisplayGame displayGame;
 	private Point pointPlayer1;
 	public String[] args;
-
+        Proxy proxy = new Proxy();
 	public Menu(DisplayGame displayGame) {
 		this.displayGame = displayGame;
 	}
@@ -37,12 +41,17 @@ public class Menu implements MouseListener, VisualAspects{
 
 	public void render(Graphics2D g2){
 		Font font= new Font("calibri", Font.BOLD,50);
+                Toolkit t = Toolkit.getDefaultToolkit();
+                AffineTransform at = g2.getTransform();
+                at.translate(20, 20);
+                Image imagen = t.getImage ("src/imagenes/zombie1.jpg");               
 		g2.setFont(font);
 		g2.setColor(Color.RED);
-		g2.fillOval(DisplayGame.WIDTH/2-73, DisplayGame.HEIGHT/2-250, 150, 150);
+                g2.drawImage(imagen, at, displayGame);
+		g2.fillOval(DisplayGame.WIDTH/2-73, DisplayGame.HEIGHT/2-250, 20, 20);
 		g2.setColor(Color.ORANGE);
-		g2.drawString("Agario Informatica 1", DisplayGame.WIDTH/2-170, 300);
-		g2.setColor(Color.BLACK);
+		g2.drawString("Informatica 1", DisplayGame.WIDTH/2-170, 300);
+		g2.setColor(Color.RED);
 		g2.drawString("Jugar", playButton.x, playButton.y+40);
 		g2.drawString("Salir", quitButton.x, quitButton.y+40);	
 	}
@@ -83,8 +92,8 @@ public class Menu implements MouseListener, VisualAspects{
 		
 	}
 
-	@Override
-	public void mousePressed(MouseEvent e) {
+	public void mousePressed(MouseEvent e ) {
+            Proxy p = new Proxy();
 		// TODO Auto-generated method stub
 		if(enabled){
 			int mx=e.getX();
@@ -92,8 +101,9 @@ public class Menu implements MouseListener, VisualAspects{
 			if(mx>=370&&mx<=470){
 				if(my>=340&&my<=390){
 					if(args.length == 0){
-			            Server server = new Server(displayGame);
-			            Thread thread = new Thread(server);
+                                           
+			           // Server server = new Server(displayGame);
+			            Thread thread = new Thread(p.doAction());
 			            thread.start();
 					}
 					else{
@@ -183,5 +193,7 @@ public class Menu implements MouseListener, VisualAspects{
     public void setPoison(Poisons poison) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
 
 }

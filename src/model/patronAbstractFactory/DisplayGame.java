@@ -25,8 +25,8 @@ import model.patronFacade.Poisons;
 public class DisplayGame extends JPanel implements ActionListener, VisualAspects {
 
     private Rectangle outerArea;
-    public static int WIDTH = 840;
-    public static int HEIGHT = 680;
+    public static int WIDTH = 850;
+    public static int HEIGHT = 580;
     private int numoffoods = 1000;
     private Players player1;
     private JViewport vPort;
