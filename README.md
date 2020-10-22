@@ -21,9 +21,7 @@ Como patron estructural facade, nos permite proporcionar una interfaz (Ingredien
 
 ![builder](src/imagenes/facade.png)
 
-## Referencias 
 
-Repo https://github.com/omerbselvi/agario 
 
 
 
